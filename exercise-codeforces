@@ -1,0 +1,82 @@
+Ejercicio 1:
+
+Suponga que se cuenta con un conjunto S = {a1, . . . , an}, de actividades que necesitan usar un recurso que no puede ser usado sino por una actividad a la vez. Cada actividad ai tiene un tiempo inicial si y ﬁnal fi asociados, tal que si ≤ fi < ∞.
+
+Entrada
+
+Un entero positivo que indica la cantidad n (1 ≤ n ≤ 100) de actividades.
+
+La primera línea, contiene una secuencia de n enteros positivos I1, I2, ..., In (1 ≤ Ii ≤ n) donde Ii equivale al tiempo inicial de la i-ésima actividad.
+
+La segunda línea, contiene una secuencia de n enteros positivos F1, F2, ..., Fn (1 ≤ Fi ≤ n) donde Fi equivale al tiempo de finalización de la i-ésima actividad.
+
+Salida
+
+Mostrar las máximas ai actividades que pudieron utilizar el recurso compartido que no se superponen entre ellas.
+
+Ejemplos
+
+Entrada
+
+Salida
+
+10
+
+1 3 1 5 3 5 6 8 2 12
+
+4 5 6 7 8 9 10 11 13 14
+
+1 4 8 10
+
+Aclaraciones
+
+En el ejemplo se establecen 10 actividades en donde la actividad 1 comienza en el t1 y terminar en el t4, la actividad 2 comienza en el t3 y finaliza en el t5, y así consecutivamente.
+
+Se imprime el número de la actividades secuencialmente.
+
+
+Solucion:
+
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner sc=new Scanner(System.in);
+        int t1=sc.nextInt();
+
+        int aux=0;
+
+        int a[]=new int[t1];
+
+        int b[]=new int[t1];
+
+        for(int i=0;i<a.length;i++){
+            a[i]=sc.nextInt();
+
+        }
+
+
+        for(int i=0;i<b.length;i++){
+            b[i]=sc.nextInt();
+
+        }
+
+
+        for(int i=0;i<a.length;i++){
+
+            if(a[i]>aux){
+                System.out.println(i+1);
+                aux=b[i];
+            }
+
+        }
+
+
+
+
+    }
+}
+
+
+

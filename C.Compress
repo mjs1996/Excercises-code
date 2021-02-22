@@ -1,0 +1,38 @@
+
+https://codeforces.com/problemset/problem/1120/C
+
+
+
+
+
+int cant =int.Parse( Console.ReadLine());
+int cost = int.Parse(Console.ReadLine());
+int costAnterior = int.Parse(Console.ReadLine());
+int resul = cost;
+char aux = ' ';
+char[] arr = new char[cant];
+
+for(int i =0;i<arr.Length;i++)
+{
+
+arr[i]=char.Parse(Console.ReadLine());
+
+}
+
+for(int i = 0; i < arr.Length; i++)
+{
+for(int j = i+1; j < arr.Length; j++)
+{
+if (arr[i]==arr[j])
+{
+resul = resul + costAnterior;
+}
+else
+{
+resul = resul + cost;
+}
+
+}
+break;
+}
+Console.WriteLine(resul);

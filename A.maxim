@@ -1,0 +1,41 @@
+https://codeforces.com/problemset/problem/1151/A
+
+
+static void Main(string[] args)
+{
+
+int A = int.Parse(Console.ReadLine());
+String candena = "ACTG";
+char[] cadena2 = new char[A];
+for (int i = 0; i < cadena2.Length; i++)
+{
+cadena2[i] =char.Parse( Console.ReadLine());
+}
+
+
+int resul = 0;
+char aux;
+for(int i = 0; i < cadena2.Length; i++)
+{
+if (i<candena.Length) {
+
+aux = char.Parse(candena.Substring(i, 1));
+if (cadena2[i] != aux)
+{
+resul++;
+
+}
+}
+else
+{
+resul++;
+}
+
+
+}
+Console.WriteLine(resul);
+Console.ReadKey();
+
+
+}
+
