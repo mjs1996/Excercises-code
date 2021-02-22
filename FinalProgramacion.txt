@@ -1,0 +1,307 @@
+
+/*
+
+
+La empresa "Johnson & Johnson" debe calcular las Asignaciones familiares para trabajadores en relación de dependencia para saber cuánto debe abonar como extra en el sueldo a cada uno de sus empleados, dependiendo del sueldo mensual percibido.
+
+Cuánto se cobra: Los montos de las asignaciones familiares dependen del rango de ingresos del empleado basado en la siguiente tabla:
+
+ 
+
+Desde
+
+Hasta
+
+Monto mensual
+
+$ 200
+
+$ 15.000
+
+$ 966
+
+$ 15.000,01
+
+$ 22.000
+
+$ 649
+
+$ 22.000,01
+
+$ 25.400
+
+$ 390
+
+$ 25.401
+
+$ 30.000
+
+$ 199
+
+La información de los empleados de la empresa se encuentra en un arreglo llamado “Empleados” y sabiendo que el arreglo se definió utilizando la siguiente estructura:
+
+class Empleado {
+
+
+   private int sucursal;
+   private int zona;
+   private int dni;
+   private String nombre;
+   private int edad;
+   private float sueldo;
+   private int cantHijos;
+   private int cantPersonas;
+
+   public int getCantHijos() {
+       return cantHijos;
+   }
+
+   public void setCantHijos(int cantHijos) {
+       this.cantHijos = cantHijos;
+   }
+
+   public int getCantPersonas() {
+       return cantPersonas;
+   }
+
+   public void setCantPersonas(int cantPersonas) {
+       this.cantPersonas = cantPersonas;
+   }
+
+   public float getSueldo() {
+       return sueldo;
+   }
+
+   public void setSueldo(float sueldo) {
+       this.sueldo = sueldo;
+   }
+
+   public int getDni() {
+       return dni;
+   }
+
+   public void setDni(int dni) {
+       this.dni = dni;
+   }
+
+   public String getNombre() {
+       return nombre;
+   }
+
+   public void setNombre(String nombre) {
+       this.nombre = nombre;
+   }
+
+   public int getEdad() {
+       return edad;
+   }
+
+   public void setEdad(int edad) {
+       this.edad = edad;
+   }
+
+   public int getZona() {
+       return zona;
+   }
+
+   public void setZona(int zona) {
+       this.zona = zona;
+   }
+
+   public int getSucursal() {
+       return sucursal;
+   }
+
+   public void setSucursal(int sucursal) {
+       this.sucursal = sucursal;
+   }
+}
+
+Se solicita imprimir una primer línea con los totales por Sucursal (Máximo 10 sucursales) y una segunda línea con los totales por zona (Máximo 7 zonas), luego una última línea con el total general. Realizar el proceso estadístico para acumular cuánto deberá abonar la empresa para todos sus empleados, teniendo en cuenta que sólo percibirán la asignación aquellos que tengan hijos.
+
+Aclaraciones
+
+Recordar que la clase Personal solo almacena los sueldos mensuales [no contar aguinaldos].
+
+Entrada
+
+Para leer la entrada solo basta con usar la misma metodología de clase:
+
+public class Main {
+
+    public static void main(String[] args){
+
+       
+
+        Empleado[] empleados = new Empleado[10000];
+
+       
+
+           //// Ingresar el calculo aqui
+
+               
+
+    }
+
+}
+
+Salida
+
+Imprimir tres líneas representando los totales por Sucursal, Zona y Total General.
+
+9999 8888 7777 6666 5555 4444 3333 2222 1111 00000
+
+7777 8888 6666 5555 4444 3333 2222 1111
+
+9999
+*/
+
+
+
+<?php 
+
+class Empleado{
+
+   private $sucursal;
+   private $zona;
+   private $nombre;
+   private $sueldo;
+
+
+   public function __construct($sucursal,$zona,$nombre,$sueldo){
+
+    $this->sucursal=$sucursal;
+    $this->zona=$zona;
+    $this->nombre=$nombre;
+    $this->sueldo=$sueldo;
+   }
+
+
+public function getSucursal(){
+
+    return $this->sucursal;
+
+
+}
+
+
+
+public function getZona(){
+
+    return $this->zona;
+
+
+}
+
+
+
+public function getNombre(){
+
+    return $this->nombre;
+
+
+}
+
+
+public function getSueldo(){
+
+    return $this->sueldo;
+
+
+}
+
+
+
+
+
+
+
+
+}
+
+$cont=0;
+$obj1=new Empleado(2,5,'emiliano',14000);
+$obj2=new Empleado(2,4,'mark',17000);
+$obj3=new Empleado(1,7,'maxi',20000);
+$obj4=new Empleado(1,7,'smith',25000);
+
+
+$arr=array(0=>$obj1, 1=>$obj2,2=>$obj3, 3=>$obj4);
+
+
+
+
+
+
+
+
+
+while($cont <10){
+    $acSucursal=0;
+    $acZona=0;
+for($i=0;$i<4;$i++){
+
+    if($arr[$i]->getSucursal()==$cont){
+
+        if($arr[$i]->getSueldo()>=200 && $arr[$i]->getSueldo()<=15000){
+            $acSucursal=$acSucursal+$arr[$i]->getSueldo()            +966;
+    }
+    elseif($arr[$i]->getSueldo()>=15001 && $arr[$i]->getSueldo()<=22000){
+        $acSucursal=$acSucursal+$arr[$i]->getSueldo() +649;
+}
+elseif($arr[$i]->getSueldo()>=22001 && $arr[$i]->getSueldo()<=25400){
+    $acSucursal=$acSucursal+$arr[$i]->getSueldo() +390;
+}
+elseif($arr[$i]->getSueldo()>=25401 && $arr[$i]->getSueldo()<=30000){
+    $acSucursal=$acSucursal+$arr[$i]->getSueldo() +199;
+}
+}
+
+
+
+if($arr[$i]->getZona()==$cont){
+
+    if($arr[$i]->getSueldo()>=200 && $arr[$i]->getSueldo()<=15000){
+        $acZona=$acZona+$arr[$i]->getSueldo()            +966;
+}
+elseif($arr[$i]->getSueldo()>=15001 && $arr[$i]->getSueldo()<=22000){
+    $acZona=$acZona+$arr[$i]->getSueldo() +649;
+}
+elseif($arr[$i]->getSueldo()>=22001 && $arr[$i]->getSueldo()<=25400){
+    $acZona=$acZona+$arr[$i]->getSueldo() +390;
+}
+elseif($arr[$i]->getSueldo()>=25401 && $arr[$i]->getSueldo()<=30000){
+    $acZona=$acZona+$arr[$i]->getSueldo() +199;
+}
+}
+
+
+}
+echo"S ".$cont.":".$acSucursal.", \n";
+echo"Z ".$cont.":".$acZona.", \n";
+
+$cont++;
+}
+
+$result=0;
+
+
+foreach($arr as $i){
+
+    if($i->getSueldo()>=200 && $i->getSueldo()<=15000){
+        $result=$result+$i->getSueldo()           +966;
+}
+elseif($i->getSueldo()>=15001 && $i->getSueldo()<=22000){
+    $result=$result+$i->getSueldo()   +649;
+}
+elseif($i->getSueldo()>=22001 && $i->getSueldo()<=25400){
+    $result=$result+$i->getSueldo()   +390;
+}
+elseif($i->getSueldo()>=25401 && $i->getSueldo()<=30000){
+    $result=$result+$i->getSueldo()   +199;
+}
+
+}
+echo "resultado ".$result;
+
+?>
